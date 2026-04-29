@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aparna Shukla | Data Analyst Portfolio</title>
+  <meta name="description" content="Portfolio website for Aparna Shukla, Senior Data Analyst specializing in Python, SQL, Power BI, Tableau, predictive analytics, KPI reporting, and business intelligence." />
+  <style>
+    :root {
+      --pink-50: #fff1f7;
+      --pink-100: #ffe4f0;
+      --pink-200: #ffc8df;
+      --pink-300: #ff9bc4;
+      --pink-500: #ec4899;
+      --pink-600: #db2777;
+      --pink-700: #be185d;
+      --rose: #fb7185;
+      --purple: #a855f7;
+      --ink: #171224;
+      --muted: #665a72;
+      --card: rgba(255, 255, 255, 0.82);
+      --border: rgba(236, 72, 153, 0.22);
+      --shadow: 0 24px 70px rgba(219, 39, 119, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 15%, rgba(255, 155, 196, 0.35), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(168, 85, 247, 0.18), transparent 26%),
+        radial-gradient(circle at 72% 84%, rgba(251, 113, 133, 0.22), transparent 30%),
+        linear-gradient(135deg, var(--pink-50), #ffffff 42%, #fff7fb);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      color: rgba(219, 39, 119, 0.35);
+      animation: twinkle 4s ease-in-out infinite;
+      font-size: 22px;
+    }
+
+    .star:nth-child(1) { top: 9%; left: 7%; animation-delay: 0s; }
+    .star:nth-child(2) { top: 19%; right: 10%; animation-delay: 0.7s; font-size: 15px; }
+    .star:nth-child(3) { top: 54%; left: 4%; animation-delay: 1.4s; font-size: 18px; }
+    .star:nth-child(4) { bottom: 14%; right: 16%; animation-delay: 2.1s; font-size: 26px; }
+    .star:nth-child(5) { bottom: 28%; left: 24%; animation-delay: 2.8s; font-size: 14px; }
+    .star:nth-child(6) { top: 39%; right: 32%; animation-delay: 1s; font-size: 17px; }
+
+    @keyframes twinkle {
+      0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.35; }
+      50% { transform: scale(1.2) rotate(18deg); opacity: 0.9; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 28px 0 70px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 35px rgba(219, 39, 119, 0.09);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      font-weight: 900;
+      color: var(--pink-700);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--pink-700); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, var(--pink-600), var(--purple));
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 14px 30px rgba(219, 39, 119, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(219, 39, 119, 0.32); }
+    .button.secondary {
+      background: rgba(255,255,255,0.75);
+      color: var(--pink-700);
+      border-color: var(--pink-200);
+      box-shadow: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+      padding: 86px 0 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      color: var(--pink-700);
+      font-weight: 850;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.95;
+      margin: 0;
+      letter-spacing: -0.075em;
+    }
+
+    .gradient-text {
+      display: block;
+      background: linear-gradient(90deg, var(--pink-600), var(--purple), var(--rose));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 26px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .profile-card, .card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-card { padding: 28px; position: relative; overflow: hidden; }
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -80px -120px auto auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: rgba(236, 72, 153, 0.18);
+    }
+
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--pink-500), var(--purple));
+      color: white;
+      font-weight: 950;
+      font-size: 34px;
+      box-shadow: 0 18px 40px rgba(219, 39, 119, 0.28);
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-card h2 { font-size: 30px; margin: 18px 0 6px; letter-spacing: -0.04em; }
+    .profile-card .role { color: var(--pink-700); font-weight: 850; margin-bottom: 18px; }
+    .contact-list { display: grid; gap: 10px; color: var(--muted); font-weight: 650; }
+    .contact-list span, .contact-list a { display: flex; gap: 10px; align-items: center; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 10px 0 70px;
+    }
+
+    .metric {
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 45px rgba(219, 39, 119, 0.08);
+    }
+
+    .metric strong { display: block; font-size: 34px; color: var(--pink-700); letter-spacing: -0.05em; }
+    .metric span { color: var(--muted); font-weight: 750; font-size: 14px; }
+
+    section { padding: 54px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+    .section-head h2 { margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.055em; }
+    .section-head p { margin: 0; color: var(--muted); line-height: 1.7; max-width: 560px; }
+
+    .experience-card { padding: 32px; }
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+    .job-top h3 { margin: 0; font-size: 27px; letter-spacing: -0.04em; }
+    .job-top p { margin: 6px 0 0; color: var(--pink-700); font-weight: 850; }
+    .date-pill {
+      white-space: nowrap;
+      border-radius: 999px;
+      background: var(--pink-100);
+      color: var(--pink-700);
+      font-weight: 850;
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    ul { margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.8; }
+    li::marker { color: var(--pink-600); }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .project-card { padding: 28px; min-height: 100%; transition: transform 0.2s ease; }
+    .project-card:hover { transform: translateY(-4px); }
+    .project-card h3 { margin: 12px 0 12px; font-size: 24px; letter-spacing: -0.04em; }
+    .icon-badge {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--pink-100);
+      color: var(--pink-700);
+      font-size: 24px;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag {
+      border-radius: 999px;
+      background: rgba(236, 72, 153, 0.09);
+      color: var(--pink-700);
+      padding: 8px 11px;
+      font-weight: 850;
+      font-size: 12px;
+    }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 20px;
+    }
+    .skills-panel {
+      padding: 32px;
+      background: linear-gradient(135deg, var(--pink-600), var(--purple));
+      color: white;
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+    }
+    .skills-panel h2 { margin: 0 0 12px; font-size: 36px; letter-spacing: -0.05em; }
+    .skills-panel p { margin: 0; color: rgba(255,255,255,0.84); line-height: 1.7; }
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      padding: 30px;
+    }
+    .skill-cloud .tag { background: white; border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(219, 39, 119, 0.08); }
+
+    .two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .info-card { padding: 28px; }
+    .info-card h3 { margin: 0 0 12px; font-size: 24px; letter-spacing: -0.04em; }
+    .info-card p { margin: 0; color: var(--muted); line-height: 1.75; }
+    .achievement { display: grid; gap: 12px; }
+    .achievement div {
+      border-radius: 20px;
+      background: var(--pink-50);
+      border: 1px solid var(--border);
+      padding: 16px;
+      font-weight: 800;
+      color: var(--pink-700);
+    }
+
+    .contact {
+      text-align: center;
+      padding: 46px;
+      border-radius: 42px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .contact h2 { margin: 0; font-size: clamp(32px, 4vw, 50px); letter-spacing: -0.055em; }
+    .contact p { color: var(--muted); line-height: 1.75; max-width: 680px; margin: 16px auto 28px; }
+    .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+
+    footer { text-align: center; color: var(--muted); font-weight: 700; padding-top: 30px; }
+
+    @media (max-width: 900px) {
+      .hero, .skills-wrap, .two-col, .project-grid { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .section-head { align-items: start; flex-direction: column; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 24px, 1160px); }
+      nav { border-radius: 24px; align-items: flex-start; }
+      .button { padding: 11px 14px; font-size: 14px; }
+      .hero { padding-top: 50px; }
+      .metrics { grid-template-columns: 1fr; }
+      .job-top { flex-direction: column; }
+      .date-pill { white-space: normal; }
+      .contact { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true">
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+    <span class="star">✦</span>
+    <span class="star">✧</span>
+  </div>
+
+  <main class="page">
+    <nav>
+      <a class="brand" href="#top">✦ Aparna Shukla</a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="button" href="mailto:aparnashukla913@gmail.com">Hire Me</a>
+    </nav>
+
+    <section class="hero" id="top">
+      <div>
+        <div class="eyebrow">✦ Senior Data Analyst • BI • Predictive Analytics</div>
+        <h1>Turning business data into <span class="gradient-text">clear, actionable insight.</span></h1>
+        <p>
+          I am a Senior Data Analyst with experience in Python, SQL, Excel, Power BI, and Tableau. I build dashboards,
+          automate reporting workflows, improve data quality, and translate complex business questions into scalable analytics solutions.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">View Projects</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/aparna-shukla/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <div class="avatar">AS</div>
+        <h2>Aparna Shukla</h2>
+        <div class="role">Senior Data Analyst at HCLTech</div>
+        <div class="contact-list">
+          <span>📍 Bangalore, Karnataka</span>
+          <a href="mailto:aparnashukla913@gmail.com">✉️ aparnashukla913@gmail.com</a>
+          <a href="tel:+918934836989">☎️ +91 8934836989</a>
+        </div>
+      </aside>
+    </section>
+
+    <div class="metrics" aria-label="Career highlights">
+      <div class="metric"><strong>35%</strong><span>faster data processing</span></div>
+      <div class="metric"><strong>22%</strong><span>campaign effectiveness lift</span></div>
+      <div class="metric"><strong>18%</strong><span>customer churn reduction</span></div>
+      <div class="metric"><strong>40%</strong><span>fewer reporting errors</span></div>
+    </div>
+
+    <section id="experience">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Analytics work focused on business intelligence, reporting automation, customer behavior analysis, and stakeholder-ready insights.</p>
+      </div>
+      <div class="card experience-card">
+        <div class="job-top">
+          <div>
+            <h3>HCLTech</h3>
+            <p>Senior Data Analyst</p>
+          </div>
+          <span class="date-pill">Sep 2022 – Feb 2026</span>
+        </div>
+        <ul>
+          <li>Utilized Python, SQL, and Excel to analyze large-scale datasets, improving data processing efficiency by 35%.</li>
+          <li>Designed interactive Power BI and Tableau dashboards to track KPIs across multiple business functions.</li>
+          <li>Performed cohort analysis, A/B testing, and regression modeling, improving campaign effectiveness by 22%.</li>
+          <li>Identified churn drivers and recommended strategies that reduced customer churn by 18%.</li>
+          <li>Automated recurring reporting workflows using Python and SQL, saving more than 20 hours per month.</li>
+          <li>Improved validation processes and data quality checks, reducing reporting errors by 40%.</li>
+          <li>Built predictive models to forecast customer behavior and sales trends for proactive decision-making.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head">
+        <h2>Featured projects</h2>
+        <p>Portfolio-ready projects highlighting customer analytics, banking intelligence, automation, anomaly detection, and dashboarding.</p>
+      </div>
+      <div class="project-grid">
+        <article class="card project-card">
+          <div class="icon-badge">✦</div>
+          <h3>Account Dormancy and Reactivation Analysis</h3>
+          <ul>
+            <li>Analyzed 12-month customer inactivity trends using SQL and Python to identify churn drivers.</li>
+            <li>Built Power BI dashboards to support targeted reactivation campaigns.</li>
+            <li>Conducted EDA to uncover behavioral patterns and achieved a 7% reactivation uplift.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">EDA</span><span class="tag">Customer Analytics</span>
+          </div>
+        </article>
+        <article class="card project-card">
+          <div class="icon-badge">✧</div>
+          <h3>Daily Bank Transaction Monitoring System</h3>
+          <ul>
+            <li>Automated high-volume transaction reporting using SQL and Python.</li>
+            <li>Implemented anomaly detection to identify suspicious transactions in real time.</li>
+            <li>Designed dashboards for compliance teams to monitor financial activity and risk patterns.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Anomaly Detection</span><span class="tag">Power BI</span><span class="tag">Regulatory Analytics</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="skills-wrap">
+        <div class="skills-panel">
+          <h2>Skills that make insights shine</h2>
+          <p>Strong analytics foundation across programming, BI tools, visualization, reporting automation, statistical analysis, and stakeholder communication.</p>
+        </div>
+        <div class="card skill-cloud">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Plotly</span>
+          <span class="tag">Bokeh</span>
+          <span class="tag">Excel</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Jupyter Notebook</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Data Cleaning</span>
+          <span class="tag">ETL</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Predictive Analytics</span>
+          <span class="tag">KPI Reporting</span>
+          <span class="tag">Stakeholder Management</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="two-col">
+        <div class="card info-card">
+          <h3>Education</h3>
+          <p><strong>Galgotias University, Noida, India</strong></p>
+          <p>Bachelor of Technology in Computer Science and Engineering</p>
+          <p>Jul 2018 – Jun 2022</p>
+          <p><strong>Relevant coursework:</strong> Data Analysis, Machine Learning, Artificial Intelligence, Data Structures, Databases, Operating Systems.</p>
+        </div>
+        <div class="card info-card achievement">
+          <h3>Achievements</h3>
+          <div>North Star Winner — Ranked in top 10 among 10,000+ participants</div>
+          <div>Top Performer Award — Achieved for 5 consecutive quarters</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact">
+        <div class="eyebrow">✦ Let’s connect</div>
+        <h2>Need dashboards, reporting automation, or business insights?</h2>
+        <p>I can help turn raw data into reliable reports, meaningful KPIs, and clear recommendations for product, marketing, finance, and operations teams.</p>
+        <div class="contact-actions" aria-label="Contact links">
+          <a class="button" href="mailto:aparnashukla913@gmail.com" aria-label="Email Aparna Shukla">&#9993; Email Aparna</a>
+          <a class="button secondary" href="tel:+918934836989" aria-label="Call Aparna Shukla">&#9742; Call Aparna</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Aparna Shukla. Built with a pink stars theme.</footer>
+  </main>
+</body>
+</html>
